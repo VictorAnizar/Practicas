@@ -352,7 +352,7 @@ int main()
 		//para reiniciar la matriz de modelo con valor de la matriz identidad
 		model = glm::mat4(1.0);
 		
-		/*
+		
 		//Ejercicio1 - grua
 		
 		
@@ -546,10 +546,10 @@ int main()
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
 		meshList[2]->RenderMeshGeometry();
 
-		*/
+		
 
 		//Ejercicio2 - robot
-
+/*
 		//Cabeza 
 		model = glm::translate(model, glm::vec3(0.0f, 7.0f, 4.0f));
 		modelaux = model;
@@ -814,7 +814,7 @@ int main()
 		color = glm::vec3(1.0f, 0.0f, 0.0f);
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
 		meshList[2]->RenderMeshGeometry();
-
+		*/
 		glUseProgram(0);
 		mainWindow.swapBuffers();
 	}
