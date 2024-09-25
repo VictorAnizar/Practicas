@@ -45,6 +45,9 @@ Texture logofiTexture;
 //Textura de Dado
 Texture dadoAniamlTexuer;
 
+//Textura Dado de 10 caras
+Texture dado10CarasTexture;
+
 Model Kitt_M;
 Model Llanta_M;
 Model Dado_M;
@@ -251,6 +254,125 @@ void CrearDado()
 
 }
 
+void CrearDado10Caras()
+{
+	unsigned int decagonoIndices[] = {
+		//cara1
+		0, 1, 2,
+		2, 3, 0,
+
+		//cara2
+		4, 5, 6,
+		6, 7, 4,
+
+		//cara3
+		8, 9, 10,
+		10, 11, 8,
+
+		//cara4
+		12, 13, 14,
+		14, 15, 12,
+
+		//cara5
+		16, 17, 18,
+		18, 19, 16,
+
+		//cara6
+		20, 21, 22,
+		22, 23, 20,
+
+		//cara7
+		24, 25, 26,
+		26, 27, 24,
+
+		//cara8
+		28, 29, 30,
+		30, 31, 28,
+
+		//cara9
+		32, 33, 34,
+		34, 35, 32,
+
+		//cara10
+		36, 37, 38,
+		38, 39, 36
+	};
+
+	GLfloat decagonoVertices[] = {
+		//x		y		z			S		T			NX		NY		NZ
+		//Cara 10
+		-0.36f,	0.24f,	-0.6f,		0.25f,	0.36f,		0.0f,	0.0f,	0.0f,		
+		-0.57f,	-0.5f,	0.42f,		0.47f,	0.53f,		0.0f,	0.0f,	0.0f,		
+		-1.0f,	-0.16f,	0.68f,		0.52f,	0.36f,		0.0f,	0.0f,	0.0f,		
+		-1.04f,	0.24f,	0.42f,		0.46f,	0.16f,		0.0f,	0.0f,	0.0f,		
+		
+		//Cara 8
+		-0.36f,	0.24f,  -0.6f,		0.25f,  0.36f,		0.0f,	0.0f,	0.0f,	
+		-1.04f,	0.24f,  0.42f,		0.29f,	0.80f,		0.0f,	0.0f,	0.0f,	
+		-1.0f,	0.64f,  0.68f,		0.42f,  0.73f,		0.0f,	0.0f,	0.0f,	
+		-0.57f,	0.89f,  0.42f,		0.47f,	0.55f,		0.0f,	0.0f,	0.0f,	
+
+		// Cara 2
+		-0.36f,	0.24f,  -0.6f,		0.25f, 0.36f,		0.0f,	0.0f,	0.0f,
+		-0.57f,	0.89f,  0.42f,		0.29f,	0.671f,		0.0f,	0.0f,	0.0f,
+		-0.14f,	0.89f,  0.68f,		0.18f,	0.82f,		0.0f,	0.0f,	0.0f,	
+		0.20f,  0.64f,  0.42f,		0.29f,	0.78f,		0.0f,	0.0f,	0.0f,
+
+		//Crara 6
+		-0.36f,	0.24f,  -0.51f,		0.25f, 0.36f,		0.0f,	0.0f,	0.0f,	
+		0.20f,  0.64f,  0.42f,		0.007f,	0.32f,		0.0f,	0.0f,	0.0f,
+		0.33f,	0.24f,  0.68f,		0.0f,  0.53f,		0.0f,	0.0f,	0.0f,	
+		0.20f,	-0.16f,  0.42f,		0.09f,	0.67f,		0.0f,	0.0f,	0.0f,	
+		
+		//Cara 4
+		-0.36f,	0.24f,  -0.51f,		0.25f, 0.36f,		0.0f,	0.0f,	0.0f,	
+		0.2f,	-0.16f,  0.42f,		0.007f,	0.32f,		0.0f,	0.0f,	0.0f,	
+		-0.14f,	-0.41f,  0.68f,		0.002f,	0.113f,		0.0f,	0.0f,	0.0f,	
+		-0.57f,  -0.41f,  0.42f,    0.12f,	0.0f,		0.0f,	0.0f,	0.0f,	
+
+		//Cara 5
+		-0.36f,  0.24f,  1.60f,		0.74f,	0.53f,		0.0f,	0.0f,	0.0f,	
+		-0.91f,	-0.16f,  0.68f,		0.52f,	0.73f,		0.0f,	0.0f,	0.0f,	
+		-1.04f,	0.24f,  0.43f,		0.47f,	0.54f,		0.0f,	0.0f,	0.0f,	
+		-0.91f,	0.64f,  0.68f,		0.52f,	0.35f,		0.0f,	0.0f,	0.0f,	
+
+
+		//Cara 7
+		-0.36f,  0.24f,  1.6f,		0.74f,	0.53f,		0.0f,	0.0f,	0.0f,	
+		-0.91f,	0.64f,  0.68f,		0.52f, 0.73f,		0.0f,	0.0f,	0.0f,	
+		-0.57f,	0.89f,  0.42f,		0.58f,	0.92f,		0.0f,	0.0f,	0.0f,	
+		-0.14f,	0.89f,  0.68f,		0.70f,	0.96f,		0.0f,	0.0f,	0.0f,	
+
+
+		//Cara 1
+		-0.36f,  0.24f,  1.6f,		0.74f,	0.53f,		0.0f,	0.0f,	0.0f,	
+		-0.14f,	0.89f,  0.68f,		0.70f,	0.96f,		0.0f,	0.0f,	0.0f,	
+		0.2f,  0.64f,  0.42f,		0.82f,	0.99f,		0.0f,	0.0f,	0.0f,	
+		0.33f,	0.24f,  0.68f,		0.91f, 0.85f,		0.0f,	0.0f,	0.0f,	
+
+
+		//Cara 3
+		-0.36f,  0.24f,  1.6f,		0.74f,	0.53f,  	0.0f,	0.0f,	0.0f,	
+		0.33f,	0.24f,  0.68f,		0.91f, 0.85f,		0.0f,	0.0f,	0.0f,	
+		0.2f,	-0.16f,  0.42f,		0.99f,	0.70f,		0.0f,	0.0f,	0.0f,	
+		-0.14f,	-0.41f,  0.68f,		0.98f,	0.49f,		0.0f,	0.0f,	0.0f,	
+
+
+		//Cara 9
+		-0.36f,  0.24f,  1.6f,		0.74f,	0.53f,		0.0f,	0.0f,	0.0f,	
+		-0.14f,	-0.41f,  0.68f,		0.98f,	0.499f,		0.0f,	0.0f,	0.0f,	
+		-0.57f,  -0.41f, 0.42f,		0.98f,	0.27f,		0.0f,	0.0f,	0.0f,	
+		-0.91f,	-0.16f,  0.68f,		0.86f,	0.16f,		0.0f,	0.0f,	0.0f,
+
+	};
+
+	// Crear el objeto de malla para el decágono
+	Mesh* decagono = new Mesh();
+	decagono->CreateMesh(decagonoVertices, decagonoIndices, 42 * 8, 22 * 3); // 
+	meshList.push_back(decagono);
+}
+
+
 
 int main()
 {
@@ -260,6 +382,7 @@ int main()
 	CreateObjects();
 	CrearDado();
 	CreateShaders();
+	CrearDado10Caras();
 
 	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f, 0.0f, 0.3f, 0.5f);
 
@@ -278,6 +401,11 @@ int main()
 	//Se importa la imagen del dado de animales
 	dadoAniamlTexuer = Texture("Textures/dado_animales_recortado.tga");
 	dadoAniamlTexuer.LoadTextureA();
+
+
+	dado10CarasTexture = Texture("Textures/Dado10Caras.tga");
+	dado10CarasTexture.LoadTextureA();
+
 	
 	
 	Kitt_M = Model();
@@ -285,8 +413,6 @@ int main()
 	Llanta_M = Model();
 	Llanta_M.LoadModel("Models/llanta_optimizada.obj");
 
-	DadoAniaml = Model();
-	DadoAniaml.LoadModel("Models/DadoAnimales.obj");
 
 	
 	std::vector<std::string> skyboxFaces;
@@ -347,26 +473,13 @@ int main()
 
 		//Dado de Opengl
 		//Ejercicio 1: Texturizar su cubo con la imagen dado_animales ya optimizada por ustedes
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-1.5f, 4.5f, -2.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		dadoAniamlTexuer.UseTexture();
-		meshList[4]->RenderMesh();
-		
-		//Ejercicio 2:Importar el cubo texturizado en el programa de modelado con 
-		//la imagen dado_animales ya optimizada por ustedes
-		
-		//Dado importado
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-3.0f, 3.0f, -2.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		DadoAniaml.RenderModel();
-
-
+		//model = glm::mat4(1.0);
+		//model = glm::translate(model, glm::vec3(-1.5f, 4.5f, -2.0f));
+		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//dadoAniamlTexuer.UseTexture();
+		//meshList[4]->RenderMesh();
 		
 
-		
 		
 		/*Reporte de práctica :
 		Ejercicio 1: Crear un dado de 8 caras y texturizarlo por medio de código
@@ -375,6 +488,15 @@ int main()
 		texturizar el logo de la Facultad de ingeniería en el cofre de su propio modelo de coche
 	
 		*/
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-8.5f, 6.5f, -2.0f));
+		model = glm::scale(model, glm::vec3(5.0, 5.0, 5.0));
+		model = glm::rotate(model, glm::radians(270.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		dado10CarasTexture.UseTexture();
+		meshList[5]->RenderMesh();
+
 
 
 		//Instancia del coche 
