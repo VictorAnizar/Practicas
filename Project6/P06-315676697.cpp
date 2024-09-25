@@ -48,8 +48,12 @@ Texture dadoAniamlTexuer;
 //Textura Dado de 10 caras
 Texture dado10CarasTexture;
 
-Model Kitt_M;
-Model Llanta_M;
+Model Chasis;
+Model Cofre;
+Model RuedaDerechaAdelante;
+Model RuedaDerechaAtras;
+Model RuedaIzqAdelante;
+Model RuedaIzqAtras;
 Model Dado_M;
 Model DadoAniaml;
 
@@ -408,10 +412,23 @@ int main()
 
 	
 	
-	Kitt_M = Model();
-	Kitt_M.LoadModel("Models/kitt_optimizado.obj");
-	Llanta_M = Model();
-	Llanta_M.LoadModel("Models/llanta_optimizada.obj");
+	Chasis = Model();
+	Chasis.LoadModel("Models/CarroMinionTexturizado.obj");
+
+	//Cofre = Model();
+	//Cofre.LoadModel("Models/Cofre.obj");
+
+	RuedaDerechaAdelante = Model();
+	RuedaDerechaAdelante.LoadModel("Models/RuedaDerTexturizada.obj");
+
+	RuedaDerechaAtras = Model();
+	RuedaDerechaAtras.LoadModel("Models/RuedaDerTexturizada.obj");
+
+	RuedaIzqAdelante = Model();
+	RuedaIzqAdelante.LoadModel("Models/RuedaIzqTexturizada.obj");
+
+	RuedaIzqAtras = Model();
+	RuedaIzqAtras.LoadModel("Models/RuedaIzqTexturizada.obj");
 
 
 	
@@ -463,6 +480,8 @@ int main()
 
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(0.0f, -2.0f, 0.0f));
+		modelaux = model;
+
 		model = glm::scale(model, glm::vec3(30.0f, 1.0f, 30.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
@@ -490,7 +509,7 @@ int main()
 		*/
 
 		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-8.5f, 6.5f, -2.0f));
+		model = glm::translate(model, glm::vec3(-22.5f, 6.5f, -7.0f));
 		model = glm::scale(model, glm::vec3(5.0, 5.0, 5.0));
 		model = glm::rotate(model, glm::radians(270.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
@@ -499,48 +518,66 @@ int main()
 
 
 
-		//Instancia del coche 
+		//------------*INICIA DIBUJO DE NUESTROS DEMÁS OBJETOS-------------------*
+		// Chasis
+		
+
 		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f + mainWindow.getmuevex() , -0.5f, -3.0f));
+		model = modelaux;
+		//model = glm::translate(model, glm::vec3(0.0f, 7.0f, -1.5f)); //0.0f, 0.4f, -1.5f
+		model = glm::translate(model, glm::vec3(0.0f, 7.0f, mainWindow.getarticulacion5())); //0.0f, 0.4f, -1.5f
+
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, mainWindow.getarticulacion6())); //0.0f, 0.4f, -1.5f
+
 		modelaux = model;
-		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		Kitt_M.RenderModel();
-
-		//Llanta delantera izquierda
+		Chasis.RenderModel();
 		model = modelaux;
-		model = glm::translate(model, glm::vec3(7.0f, -0.5f, 8.0f));
-		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
-		color = glm::vec3(0.5f, 0.5f, 0.5f);//llanta con color gris
-		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		Llanta_M.RenderModel();
 
-		//Llanta trasera izquierda
-		model = modelaux;
-		model = glm::translate(model, glm::vec3(15.5f, -0.5f, 8.0f));
-		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		Llanta_M.RenderModel();
+		
 
-		//Llanta delantera derecha
-		model = modelaux;
-		model = glm::translate(model, glm::vec3(7.0f, -0.5f, 1.5f));
-		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		Llanta_M.RenderModel();
+		//lanta izq adelante
+		model = glm::translate(model, glm::vec3(-8.0f, -3.0f, 13.0));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion1()), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion2()), glm::vec3(1.0f, 0.0f, 0.0f));
 
-		//Llanta trasera derecha
-		model = modelaux;
-		model = glm::translate(model, glm::vec3(15.5f, -0.5f, 1.5f));
-		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		Llanta_M.RenderModel();
+		RuedaIzqAdelante.RenderModel();
+		model = modelaux;
+
+
+		//lanta izq Atras
+		model = glm::translate(model, glm::vec3(-8.0f, -3.0f, -13.0));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion1()), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion2()), glm::vec3(1.0f, 0.0f, 0.0f));
+
+		
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		RuedaIzqAtras.RenderModel();
+		model = modelaux;
+
+
+		//lanta Der adelante
+		model = glm::translate(model, glm::vec3(8.0f, -3.0f, 13.0));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion1()), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion2()), glm::vec3(1.0f, 0.0f, 0.0f));
+
+		
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		RuedaDerechaAdelante.RenderModel();
+		model = modelaux;
+
+
+		//lanta Der Atras
+		model = glm::translate(model, glm::vec3(8.0f, -3.0f, -13.0));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion1()), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion2()), glm::vec3(1.0f, 0.0f, 0.0f));
+
+		
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		RuedaDerechaAtras.RenderModel();
+		model = modelaux;
 
 		glUseProgram(0);
 

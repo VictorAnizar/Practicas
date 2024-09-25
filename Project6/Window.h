@@ -15,6 +15,20 @@ public:
 	GLfloat getYChange();
 	GLfloat getmuevex() { return muevex; }
 	GLfloat getangulocola() { return angulocola; }
+	GLfloat getarticulacion1() { return articulacion1; }
+	GLfloat getarticulacion2() { return articulacion2; }
+	GLfloat getarticulacion3() { return articulacion3; }
+	GLfloat getarticulacion4() { return articulacion4; }
+	GLfloat getarticulacion5() { return articulacion5; }
+	GLfloat getarticulacion6() { return articulacion6; }
+	GLfloat getarticulacion7() { return articulacion7; }
+	GLfloat getarticulacion8() { return articulacion8; }
+	GLfloat getarticulacion9() { return articulacion9; }
+	GLfloat getarticulacion10() { return articulacion10; }
+	GLfloat getllanta1() { return llanta1; }
+	GLfloat getllanta2() { return llanta2; }
+	GLfloat getllanta3() { return llanta3; }
+	GLfloat getllanta4() { return llanta4; }
 	bool getShouldClose() {
 		return  glfwWindowShouldClose(mainWindow);}
 	bool* getsKeys() { return keys; }
@@ -24,6 +38,8 @@ public:
 private: 
 	GLFWwindow *mainWindow;
 	GLint width, height;
+	GLfloat articulacion1, articulacion2, articulacion3, articulacion4, articulacion5, articulacion6, articulacion7, articulacion8, articulacion9, articulacion10, llanta1, llanta2, llanta3, llanta4;
+
 	bool keys[1024];
 	GLint bufferWidth, bufferHeight;
 	void createCallbacks();
