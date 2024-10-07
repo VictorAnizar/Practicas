@@ -29,6 +29,10 @@ public:
 	GLfloat getllanta3() { return llanta3; }
 	GLfloat getllanta4() { return llanta4; }
 
+	GLint getLuzDelante() { return luzDelante; }
+	GLint getLuzTrasera() { return lusTrazera; }
+
+
 	GLfloat getmuevex() { return muevex; }
 	bool getShouldClose() {
 		return  glfwWindowShouldClose(mainWindow);}
@@ -41,6 +45,8 @@ private:
 	GLint width, height;
 	GLfloat articulacion1, articulacion2, articulacion3, articulacion4, articulacion5, articulacion6, articulacion7, articulacion8, articulacion9, articulacionHelicoptero, llanta1, llanta2, llanta3, llanta4;
 	GLboolean isPrendido;
+	GLint luzDelante = 1;
+	GLint lusTrazera = 0;
 	bool keys[1024];
 	GLint bufferWidth, bufferHeight;
 	void createCallbacks();

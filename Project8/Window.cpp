@@ -137,22 +137,30 @@ void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, in
 	{
 		theWindow->articulacion2 -= 10.0;
 	}
+	//Abre cofre
 	if (key == GLFW_KEY_H)
 	{
 		theWindow->articulacion3 += 10.0;
 	}
+	//Cirerra cofre
 	if (key == GLFW_KEY_J)
 	{
 		theWindow->articulacion4 -= 10.0;
 	}
+	//AVnanza caro
 	if (key == GLFW_KEY_K)
 	{
 		theWindow->articulacion5 += 10.0;
-
+		theWindow->luzDelante = 1.0;
+		theWindow->lusTrazera = 0.0;
 	}
+	//Retrocede carro
 	if (key == GLFW_KEY_L)
 	{
 		theWindow->articulacion6 -= 10.0;
+		theWindow->lusTrazera = 1.0;
+		theWindow->luzDelante = 0.0;
+
 	}
 	if (key == GLFW_KEY_Z)
 	{
