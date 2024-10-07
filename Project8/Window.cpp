@@ -180,11 +180,11 @@ void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, in
 	}
 	if (key == GLFW_KEY_U)
 	{
-		theWindow->llanta1 += 10.0;
+		theWindow->isPrendidoGru = false;
 	}
 	if (key == GLFW_KEY_I)
 	{
-		theWindow->llanta2 += 10.0;
+		theWindow->isPrendidoGru = true;
 	}
 	if (key == GLFW_KEY_O)
 	{

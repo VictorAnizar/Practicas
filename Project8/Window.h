@@ -24,6 +24,7 @@ public:
 	GLfloat getarticulacion9() { return articulacion9; }
 	GLfloat getarticulacionHelicoptero() { return articulacionHelicoptero; }
 	GLfloat getisPrendido() { return isPrendido; }
+	GLfloat getisPrendidoGru() { return isPrendidoGru; }
 	GLfloat getllanta1() { return llanta1; }
 	GLfloat getllanta2() { return llanta2; }
 	GLfloat getllanta3() { return llanta3; }
@@ -45,6 +46,7 @@ private:
 	GLint width, height;
 	GLfloat articulacion1, articulacion2, articulacion3, articulacion4, articulacion5, articulacion6, articulacion7, articulacion8, articulacion9, articulacionHelicoptero, llanta1, llanta2, llanta3, llanta4;
 	GLboolean isPrendido;
+	GLboolean isPrendidoGru;
 	GLint luzDelante = 1;
 	GLint lusTrazera = 0;
 	bool keys[1024];
