@@ -178,6 +178,7 @@ void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, in
 	{
 		theWindow->articulacionHelicoptero += 10.0;
 	}
+	//Prende apaga gru
 	if (key == GLFW_KEY_U)
 	{
 		theWindow->isPrendidoGru = false;
@@ -186,6 +187,7 @@ void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, in
 	{
 		theWindow->isPrendidoGru = true;
 	}
+	//Prende apagar lampara lava
 	if (key == GLFW_KEY_O)
 	{
 		theWindow->isPrendido = false;
