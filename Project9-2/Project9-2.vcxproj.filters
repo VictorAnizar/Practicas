@@ -104,7 +104,7 @@
     <ClCompile Include="Shader_light.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="practica9avanzada.cpp">
+    <ClCompile Include="P9-2-315676697.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
